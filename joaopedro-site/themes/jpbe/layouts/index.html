@@ -1,0 +1,185 @@
+{{ define "main" }}
+
+<!-- ── HERO ─────────────────────────────────── -->
+<section>
+  <div class="hero">
+    <p class="hero__eyebrow">Business Engineering</p>
+    <h1 class="hero__title">
+      Menos achismo.<br>
+      <em>Mais dados.</em><br>
+      Melhores decisões.
+    </h1>
+    <p class="hero__sub">
+      Conteúdo e análises sobre gestão, custos, dados e tecnologia
+      para ajudar empresas a tomar decisões melhores.
+    </p>
+    <div class="hero__actions">
+      <a href="/insights/" class="btn btn--primary">Ver insights →</a>
+      <a href="{{ .Site.Params.youtube }}" class="btn btn--ghost" target="_blank" rel="noopener">▶ Canal no YouTube</a>
+    </div>
+    <div class="hero__stats">
+      <div>
+        <div class="stat__number">5+</div>
+        <div class="stat__label">Anos de experiência</div>
+      </div>
+      <div>
+        <div class="stat__number">3+</div>
+        <div class="stat__label">Setores analisados</div>
+      </div>
+      <div>
+        <div class="stat__number">100%</div>
+        <div class="stat__label">Baseado em dados</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INSIGHTS RECENTES ─────────────────────── -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header">
+      <p class="section__eyebrow">Conteúdo</p>
+      <h2 class="section__title">Insights recentes</h2>
+      <p class="section__desc">Análises práticas sobre finanças, dados, processos e negócios.</p>
+    </div>
+    <div class="grid grid--3">
+      {{ range first 3 (where .Site.RegularPages "Section" "insights") }}
+      <a href="{{ .Permalink }}" class="card">
+        <p class="card__tag">{{ with .Params.category }}{{ . }}{{ else }}Insight{{ end }}</p>
+        <h3 class="card__title">{{ .Title }}</h3>
+        <p class="card__desc">{{ .Summary | truncate 120 }}</p>
+        <p class="card__meta">{{ .Date.Format "02 Jan 2006" }}</p>
+        <span class="card__arrow">Ler artigo →</span>
+      </a>
+      {{ else }}
+      <!-- Placeholder quando não há posts ainda -->
+      <a href="#" class="card">
+        <p class="card__tag">Finance & Costs</p>
+        <h3 class="card__title">Sua empresa pode estar vendendo mais e ficando mais pobre</h3>
+        <p class="card__desc">Faturamento crescente nem sempre significa resultado positivo. Entenda por que empresas quebram enquanto crescem.</p>
+        <span class="card__arrow">Em breve →</span>
+      </a>
+      <a href="#" class="card">
+        <p class="card__tag">Data & Analytics</p>
+        <h3 class="card__title">Os KPIs que toda empresa deveria acompanhar</h3>
+        <p class="card__desc">Dashboards cheios de gráficos não significam decisões melhores. Veja quais indicadores realmente importam.</p>
+        <span class="card__arrow">Em breve →</span>
+      </a>
+      <a href="#" class="card">
+        <p class="card__tag">Process & Automation</p>
+        <h3 class="card__title">Como calcular o custo real de um produto</h3>
+        <p class="card__desc">Muitas empresas precificam errado por não conhecerem seus custos reais. Um guia completo para não cometer esse erro.</p>
+        <span class="card__arrow">Em breve →</span>
+      </a>
+      {{ end }}
+    </div>
+    <div style="margin-top: 40px; text-align: center;">
+      <a href="/insights/" class="btn btn--ghost">Ver todos os insights →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CATEGORIAS ─────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <p class="section__eyebrow">Tópicos</p>
+      <h2 class="section__title">O que você vai encontrar aqui</h2>
+    </div>
+    <div class="grid grid--3">
+      <div class="card">
+        <p class="card__tag">💰 Finance & Costs</p>
+        <h3 class="card__title">Custos, margem e rentabilidade</h3>
+        <p class="card__desc">Faturamento, lucro, custos fixos e variáveis, margem de contribuição e fluxo de caixa.</p>
+      </div>
+      <div class="card">
+        <p class="card__tag">📊 Data & Analytics</p>
+        <h3 class="card__title">Dados, KPIs e dashboards</h3>
+        <p class="card__desc">Como usar dados para tomar decisões, construir indicadores e criar dashboards que funcionam.</p>
+      </div>
+      <div class="card">
+        <p class="card__tag">⚙️ Process & Automation</p>
+        <h3 class="card__title">Processos e automação</h3>
+        <p class="card__desc">Eficiência operacional, digitalização de processos e automação com tecnologia.</p>
+      </div>
+      <div class="card">
+        <p class="card__tag">📈 Investment & Projects</p>
+        <h3 class="card__title">ROI e viabilidade</h3>
+        <p class="card__desc">Análise de investimentos, CAPEX, ROI, payback e viabilidade econômica de projetos.</p>
+      </div>
+      <div class="card">
+        <p class="card__tag">🏢 Business Cases</p>
+        <h3 class="card__title">Casos empresariais reais</h3>
+        <p class="card__desc">Análises de empresas, setores e situações reais para aprender com exemplos práticos.</p>
+      </div>
+      <div class="card">
+        <p class="card__tag">🎥 YouTube</p>
+        <h3 class="card__title">Conteúdo em vídeo</h3>
+        <p class="card__desc">Cada artigo tem um vídeo correspondente. Você escolhe como consumir o conteúdo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOLUÇÕES PREVIEW ───────────────────────── -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header">
+      <p class="section__eyebrow">Soluções</p>
+      <h2 class="section__title">Como posso ajudar sua empresa</h2>
+      <p class="section__desc">Além do conteúdo gratuito, ofereço soluções personalizadas em análise e engenharia de negócios.</p>
+    </div>
+    <div class="solutions-grid">
+      <div class="solution-card">
+        <div class="solution-card__accent"></div>
+        <span class="solution-card__icon">📊</span>
+        <h3 class="solution-card__title">Business Analytics</h3>
+        <p class="solution-card__desc">Dashboards e indicadores para tomada de decisão. Transforme seus dados em visibilidade real do negócio.</p>
+        <span class="solution-card__badge">Em breve</span>
+      </div>
+      <div class="solution-card">
+        <div class="solution-card__accent"></div>
+        <span class="solution-card__icon">💰</span>
+        <h3 class="solution-card__title">Cost & Performance</h3>
+        <p class="solution-card__desc">Análise de custos, rentabilidade e performance por produto, linha ou unidade de negócio.</p>
+        <span class="solution-card__badge">Em breve</span>
+      </div>
+      <div class="solution-card">
+        <div class="solution-card__accent"></div>
+        <span class="solution-card__icon">⚙️</span>
+        <h3 class="solution-card__title">Process Automation</h3>
+        <p class="solution-card__desc">Digitalização e automação de processos manuais. Menos planilhas, mais inteligência.</p>
+        <span class="solution-card__badge">Em breve</span>
+      </div>
+      <div class="solution-card">
+        <div class="solution-card__accent"></div>
+        <span class="solution-card__icon">📈</span>
+        <h3 class="solution-card__title">Project Economics</h3>
+        <p class="solution-card__desc">Análises de viabilidade econômica e retorno de investimento para decisões de CAPEX.</p>
+        <span class="solution-card__badge">Em breve</span>
+      </div>
+    </div>
+    <div style="margin-top: 40px; text-align: center;">
+      <a href="/solucoes/" class="btn btn--ghost">Ver todas as soluções →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA NEWSLETTER ─────────────────────────── -->
+<section class="section">
+  <div class="container--narrow">
+    <div class="cta-banner">
+      <h2 class="cta-banner__title">Receba análises toda semana</h2>
+      <p class="cta-banner__sub">
+        Insights sobre gestão, dados e negócios diretamente no seu e-mail.
+        Sem spam. Só conteúdo que você pode usar na segunda-feira.
+      </p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a href="{{ .Site.Params.youtube }}" class="btn btn--primary" target="_blank" rel="noopener">▶ Seguir no YouTube</a>
+        <a href="{{ .Site.Params.linkedin }}" class="btn btn--ghost" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

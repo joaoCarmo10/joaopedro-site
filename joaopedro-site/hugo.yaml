@@ -1,0 +1,41 @@
+baseURL: "https://joaopedro.eng.br/"
+languageCode: "pt-br"
+title: "João Pedro | Business Engineering"
+theme: "jpbe"
+
+params:
+  author: "João Pedro"
+  tagline: "Menos achismo. Mais dados. Melhores decisões."
+  description: "Conteúdo e soluções sobre gestão, custos, dados, processos e tecnologia para ajudar empresas a tomar decisões melhores."
+  youtube: "https://youtube.com/@joaopedro"
+  linkedin: "https://linkedin.com/in/joaopedro"
+  email: "contato@joaopedro.eng.br"
+
+taxonomies:
+  category: "categories"
+  tag: "tags"
+
+menu:
+  main:
+    - name: "Insights"
+      url: "/insights/"
+      weight: 1
+    - name: "Sobre"
+      url: "/sobre/"
+      weight: 2
+    - name: "Soluções"
+      url: "/solucoes/"
+      weight: 3
+    - name: "YouTube"
+      url: "https://youtube.com/@joaopedro"
+      weight: 4
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+outputs:
+  home:
+    - HTML
+    - RSS

@@ -1,0 +1,52 @@
+{{ define "main" }}
+
+<article>
+  <header class="post-header container--narrow">
+    <p class="section__eyebrow">{{ with .Params.category }}{{ . }}{{ else }}Insight{{ end }}</p>
+    <h1 class="post-title">{{ .Title }}</h1>
+    <p class="post-meta">
+      {{ .Date.Format "02 de January de 2006" }}
+      {{ with .ReadingTime }} · {{ . }} min de leitura{{ end }}
+    </p>
+    {{ with .Params.tags }}
+    <div style="margin-bottom: 32px;">
+      {{ range . }}
+        <span class="tag">{{ . }}</span>
+      {{ end }}
+    </div>
+    {{ end }}
+    {{ with .Params.youtube_id }}
+    <div style="position:relative; padding-bottom:56.25%; height:0; margin-bottom:40px; border-radius:12px; overflow:hidden;">
+      <iframe
+        src="https://www.youtube.com/embed/{{ . }}"
+        style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+        allowfullscreen loading="lazy">
+      </iframe>
+    </div>
+    {{ end }}
+  </header>
+
+  <div class="post-content container--narrow">
+    {{ .Content }}
+  </div>
+</article>
+
+<!-- Navegação entre posts -->
+<div class="section" style="padding-top: 0;">
+  <div class="container--narrow" style="display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+    {{ with .PrevInSection }}
+    <a href="{{ .Permalink }}" class="card" style="flex:1; min-width:200px;">
+      <p class="card__tag">← Anterior</p>
+      <p class="card__title" style="font-size:16px;">{{ .Title }}</p>
+    </a>
+    {{ end }}
+    {{ with .NextInSection }}
+    <a href="{{ .Permalink }}" class="card" style="flex:1; min-width:200px; text-align:right;">
+      <p class="card__tag">Próximo →</p>
+      <p class="card__title" style="font-size:16px;">{{ .Title }}</p>
+    </a>
+    {{ end }}
+  </div>
+</div>
+
+{{ end }}
